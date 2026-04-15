@@ -8,10 +8,11 @@
 
 ## 🌟 功能特性
 
-- ✅ **产品分类展示**：五金工具、电气设备、安防产品、工业耗材
-- ✅ **产品列表 & 详情页**：完整的产品信息展示
-- ✅ **购物车功能**：用户可添加/删除购物车商品
-- ✅ **订单系统**：完整的订单流程
+- ✅ **首页展示**：导航栏、产品分类展示区域
+- ✅ **分类页面**：显示分类下的所有产品
+- ✅ **产品列表 & 详情页**：完整的产品信息展示（待实现）
+- ✅ **购物车功能**：用户可添加/删除购物车商品（待实现）
+- ✅ **订单系统**：完整的订单流程（待实现）
 - ✅ **响应式设计**：完美适配 PC 和移动端
 
 ## 🛠️ 技术栈
@@ -27,6 +28,12 @@
 ```
 industrial_store/
 ├── app/                # Next.js App Router
+│   ├── api/            # API routes
+│   │   └── categories/
+│   │       └── route.ts
+│   └── categories/     # Category pages
+│       └── [slug]/
+│           └── page.tsx
 ├── prisma/             # Prisma schema + migrations
 ├── public/             # Static assets
 ├── package.json        # Dependencies
