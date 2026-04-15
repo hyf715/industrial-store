@@ -10,7 +10,8 @@
 
 - ✅ **首页展示**：导航栏、产品分类展示区域
 - ✅ **分类页面**：显示分类下的所有产品
-- ✅ **产品列表 & 详情页**：完整的产品信息展示（待实现）
+- ✅ **产品列表页**：显示所有产品，支持按分类筛选
+- ✅ **产品详情页**：完整的产品信息、价格、库存
 - ✅ **购物车功能**：用户可添加/删除购物车商品（待实现）
 - ✅ **订单系统**：完整的订单流程（待实现）
 - ✅ **响应式设计**：完美适配 PC 和移动端
@@ -31,8 +32,12 @@ industrial_store/
 │   ├── api/            # API routes
 │   │   └── categories/
 │   │       └── route.ts
-│   └── categories/     # Category pages
-│       └── [slug]/
+│   ├── categories/     # Category pages
+│   │   └── [slug]/
+│   │       └── page.tsx
+│   └── products/       # Product pages
+│       ├── page.tsx    # Product list with category filter
+│       └── [slug]/     # Product detail page
 │           └── page.tsx
 ├── prisma/             # Prisma schema + migrations
 ├── public/             # Static assets
