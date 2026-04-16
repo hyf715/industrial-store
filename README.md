@@ -14,6 +14,7 @@
 - ✅ **产品详情页**：完整的产品信息、价格、库存
 - ✅ **购物车功能**：用户可添加/删除购物车商品，支持数量调整
 - ✅ **支付流程**：订单结算页面、订单 API、支付功能
+- ✅ **能源科技新闻页**：展示最新能源科技动态
 - ✅ **响应式设计**：完美适配 PC 和移动端
 
 ## 🛠️ 技术栈
@@ -45,7 +46,9 @@ industrial_store/
 │   │       └── page.tsx
 │   ├── cart/           # Cart page
 │   │   └── page.tsx
-│   └── checkout/       # Checkout page
+│   ├── checkout/       # Checkout page
+│   │   └── page.tsx
+│   └── news/           # Energy news page
 │       └── page.tsx
 ├── prisma/             # Prisma schema + migrations
 ├── public/             # Static assets
