@@ -13,7 +13,7 @@
 - ✅ **产品列表页**：显示所有产品，支持按分类筛选
 - ✅ **产品详情页**：完整的产品信息、价格、库存
 - ✅ **购物车功能**：用户可添加/删除购物车商品，支持数量调整
-- ✅ **订单系统**：完整的订单流程（待实现）
+- ✅ **支付流程**：订单结算页面、订单 API、支付功能
 - ✅ **响应式设计**：完美适配 PC 和移动端
 
 ## 🛠️ 技术栈
@@ -32,7 +32,9 @@ industrial_store/
 │   ├── api/            # API routes
 │   │   ├── categories/
 │   │   │   └── route.ts
-│   │   └── cart/
+│   │   ├── cart/
+│   │   │   └── route.ts
+│   │   └── orders/
 │   │       └── route.ts
 │   ├── categories/     # Category pages
 │   │   └── [slug]/
@@ -41,7 +43,9 @@ industrial_store/
 │   │   ├── page.tsx    # Product list with category filter
 │   │   └── [slug]/     # Product detail page
 │   │       └── page.tsx
-│   └── cart/           # Cart page
+│   ├── cart/           # Cart page
+│   │   └── page.tsx
+│   └── checkout/       # Checkout page
 │       └── page.tsx
 ├── prisma/             # Prisma schema + migrations
 ├── public/             # Static assets
