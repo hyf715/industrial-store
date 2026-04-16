@@ -1,36 +1,8 @@
-import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 
-const prisma = new PrismaClient();
-
 export default async function NewsPage() {
-  // 获取能源科技新闻（模拟数据）
-  const newsItems = [
-    {
-      id: 1,
-      title: 'NESE天然气管道奠基仪式',
-      summary: '美国能源部官员在纽约市为NESE管道项目奠基，旨在向东北部提供可靠、廉价的天然气',
-      date: '2026-04-14',
-      category: '天然气',
-      image: '/images/news/nese-pipeline.jpg',
-    },
-    {
-      id: 2,
-      title: '本土医疗同位素制造设施',
-      summary: '能源部能源优势融资办公室宣布对本土医疗同位素制造设施的有条件承诺',
-      date: '2026-04-09',
-      category: '医疗同位素',
-      image: '/images/news/medical-isotopes.jpg',
-    },
-    {
-      id: 3,
-      title: '科罗拉多煤炭电厂维持运营',
-      summary: '特朗普政府维持科罗拉多州煤炭电厂运营，确保电价实惠可靠',
-      date: '2026-03-30',
-      category: '煤炭能源',
-      image: '/images/news/colorado-coal.jpg',
-    },
-  ];
+  const res = await fetch('http://localhost:3000/api/news', { cache: 'no-store' });
+  const { news } = await res.json();
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black">
@@ -68,26 +40,26 @@ export default async function NewsPage() {
       {/* News Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsItems.map((news) => (
-            <div key={news.id} className="bg-white dark:bg-zinc-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          {news.map((item: any) => (
+            <div key={item.id} className="bg-white dark:bg-zinc-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               <div className="h-48 bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
                 <span className="text-6xl">⚡</span>
               </div>
               <div className="p-6">
                 <span className="inline-block px-3 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 text-sm rounded-full mb-2">
-                  {news.category}
+                  {item.category}
                 </span>
                 <h2 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
-                  {news.title}
+                  {item.title}
                 </h2>
                 <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
-                  {news.summary}
+                  {item.summary}
                 </p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-zinc-500">
-                    {news.date}
+                    {item.date}
                   </span>
-                  <Link href={`/news/${news.id}`} className="text-zinc-900 dark:text-white font-semibold hover:underline">
+                  <Link href={`/news/${item.id}`} className="text-zinc-900 dark:text-white font-semibold hover:underline">
                     阅读更多 →
                   </Link>
                 </div>
